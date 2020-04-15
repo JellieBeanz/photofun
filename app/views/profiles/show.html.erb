@@ -15,5 +15,7 @@
   <%= @profile.user_id %>
 </p>
 
+<% if current_user.admin? %>
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
+<% end %>
 <%= link_to 'Back', profiles_path %>

@@ -1,5 +1,13 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :ensure_admin, :only => [:edit, :destroy]
+
+  def ensure_admin
+    unless current_user && current_user.admin?
+      render :text => "Access Error Message", :status => :unauthorized
+    end
+  end
 
   # GET /profiles
   # GET /profiles.json
