@@ -1,4 +1,8 @@
 <p id="notice"><%= notice %></p>
+<p>
+  <strong>Profile Picture</strong>
+</p>
+  <%= image_tag(@profile.profilepic.url) %>
 
 <p>
   <strong>Firstname:</strong>
@@ -14,6 +18,8 @@
   <strong>User:</strong>
   <%= @profile.user_id %>
 </p>
+
+
 
 <% if current_user.admin? %>
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

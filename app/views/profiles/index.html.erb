@@ -15,6 +15,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
+        <td><%= image_tag(profile.profilepic.tiny.url, class: "rounded mx-auto d-block") %></td>
         <td><%= profile.firstname %></td>
         <td><%= profile.lastname %></td>
         <td><%= profile.user_id %></td>

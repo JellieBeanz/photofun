@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2020_04_13_175935) do
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "profilepic"
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
