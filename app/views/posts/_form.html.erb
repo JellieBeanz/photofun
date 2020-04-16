@@ -10,23 +10,42 @@
       </ul>
     </div>
   <% end %>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-5">
+            <span class="section-heading-upper">Create A New Post</span>
+          </h2>
+          <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+            <li class="list-unstyled-item list-hours-item d-flex">
+              <%= form.label :title %>
+              <span class="ml-auto"><%= form.text_field :title %></span>
+            </li>
+            <li class="list-unstyled-item list-hours-item d-flex">
+              <%= form.label :description %>
+              <span class="ml-auto"><%= form.text_area :description %></span>
+            </li>
+            <li class="list-unstyled-item list-hours-item d-flex">
+              <div class="mr-5"<%= form.label :image %></div>
+              <span class="ml-2 "><%= form.file_field :image %></span>
+            </li>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
 
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image %>
-  </div>
+          </ul>
+          <p class="address mb-5">
+            <em>
 
-  <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+              <%= form.submit %>
+              <br>
+              <br>
+              <strong><%= link_to 'Back', posts_path %></strong>
+            </em>
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+</section>
 <% end %>

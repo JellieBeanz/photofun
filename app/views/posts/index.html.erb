@@ -1,38 +1,39 @@
 <p id="notice"><%= notice %></p>
 <% @posts.each do |post| %>
 
-<section class="page-section">
+<section class="page-section about-heading">
   <div class="container">
-    <div class="product-item">
-      <div class="product-item-title d-flex">
-        <div class="bg-faded p-5 d-flex ml-auto mr-auto rounded">
-          <h2 class="section-heading mb-0">
-            <span class="section-heading-upper"><%= link_to post.title, post %></span>
-          </h2>
-        </div>
-      </div>
-      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-lg-0" <%= image_tag(post.image.profile_size.url) %>
-      <div class="product-item-description d-flex ml-auto mr-auto">
-        <div class="bg-faded p-5 rounded">
-          <p class="mb-0">  <%= post.description %></br>
-            <% if user_signed_in? %>
-            <%= link_to 'Edit', edit_post_path(post) %>
-            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-            <% end %> </p>
+    <a href="<%= post_url(post)%>">
+    <img class="img-fluid rounded about-heading-img mb-0 mb-lg-0"<%= image_tag(post.image.profile_size.url) %>
+    </a>
+    <div class="about-heading-content">
+      <div class="row">
+        <div class="col-xl-9 col-lg-10 mx-auto">
+          <div class="bg-faded rounded p-5">
+            <h2 class="section-heading mb-4">
+              <span class="section-heading-upper"><%= link_to post.title, post %></span>
+            </h2>
+            <p class="mb-0">  <%= post.description %><br>
+              <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_post_path(post) %>
+              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %> </p>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-    <hr>
 <% end %>
 
 
 <br>
+<div class="intro-button mx-auto mb-0">
+  <a class="btn btn-primary btn-xl" <%= link_to 'New Post', new_post_path %></a>
+</div>
+<br>
 
-<%= link_to 'New Post', new_post_path %>
 
 <footer class="footer text-faded text-center py-5">
   <div class="container">
@@ -46,7 +47,7 @@
     <% else %>
       <%= link_to'Register', new_user_registration_path %> or
       <%= link_to'Sign in', new_user_session_path %>
-    <% end %></br>
+    <% end %><br>
   <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@andersjilden?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Anders Jildén"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Photo credits: Anders Jildén</span></a>
 
   </div>
