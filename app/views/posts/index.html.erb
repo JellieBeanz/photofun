@@ -1,28 +1,31 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Photo Fun</h1>
-
 <% @posts.each do |post| %>
 
-    <h2><%= link_to post.title, post %></h2>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-9">
-          <a href="<%= post_url(post)%>">
-            <div class="card-img">
-            <%= image_tag(post.image.profile_size.url, class: "rounded mx-auto d-block") %>
-            </div>
-          </a>
+<section class="page-section">
+  <div class="container">
+    <div class="product-item">
+      <div class="product-item-title d-flex">
+        <div class="bg-faded p-5 d-flex ml-auto mr-auto rounded">
+          <h2 class="section-heading mb-0">
+            <span class="section-heading-upper"><%= link_to post.title, post %></span>
+          </h2>
+        </div>
+      </div>
+      <img class="product-item-img mx-auto d-flex rounded img-fluid mb-lg-0" <%= image_tag(post.image.profile_size.url) %>
+      <div class="product-item-description d-flex ml-auto mr-auto">
+        <div class="bg-faded p-5 rounded">
+          <p class="mb-0">  <%= post.description %></br>
+            <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_post_path(post) %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %> </p>
         </div>
       </div>
     </div>
-    <br>
-    <%= post.description %>
-    <br>
-    <% if user_signed_in? %>
-    <%= link_to 'Edit', edit_post_path(post) %>
-    <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-    <% end %>
+  </div>
+</section>
+
+
     <hr>
 <% end %>
 
@@ -30,3 +33,21 @@
 <br>
 
 <%= link_to 'New Post', new_post_path %>
+
+<footer class="footer text-faded text-center py-5">
+  <div class="container">
+
+      <%= yield %>
+    <% if user_signed_in? %>
+      <div>Signed in as... <%= current_user.email %>
+        (<%= link_to'Sign out', destroy_user_session_path,
+          :method => :delete%>)
+      </div>
+    <% else %>
+      <%= link_to'Register', new_user_registration_path %> or
+      <%= link_to'Sign in', new_user_session_path %>
+    <% end %></br>
+  <a style="background-color:black;color:white;text-decoration:none;padding:4px 6px;font-family:-apple-system, BlinkMacSystemFont, &quot;San Francisco&quot;, &quot;Helvetica Neue&quot;, Helvetica, Ubuntu, Roboto, Noto, &quot;Segoe UI&quot;, Arial, sans-serif;font-size:12px;font-weight:bold;line-height:1.2;display:inline-block;border-radius:3px" href="https://unsplash.com/@andersjilden?utm_medium=referral&amp;utm_campaign=photographer-credit&amp;utm_content=creditBadge" target="_blank" rel="noopener noreferrer" title="Download free do whatever you want high-resolution photos from Anders Jildén"><span style="display:inline-block;padding:2px 3px"><svg xmlns="http://www.w3.org/2000/svg" style="height:12px;width:auto;position:relative;vertical-align:middle;top:-2px;fill:white" viewBox="0 0 32 32"><title>unsplash-logo</title><path d="M10 9V0h12v9H10zm12 5h10v18H0V14h10v9h12v-9z"></path></svg></span><span style="display:inline-block;padding:2px 3px">Photo credits: Anders Jildén</span></a>
+
+  </div>
+</footer>

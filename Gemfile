@@ -54,6 +54,9 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
+
+# Bootstrap Gem
+gem 'bootstrap-sass'
 # Gems for image management
 gem 'carrierwave'
 gem 'mini_magick'
