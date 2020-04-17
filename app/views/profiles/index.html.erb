@@ -1,32 +1,43 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Profiles</h1>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-5">
+            <p id="notice"><%= notice %></p>
+            <span class="section-heading-upper">Profiles</span>
+          </h2>
+            <table>
+              <thead>
+                <tr>
+                  <th> <p class= "section-heading-upper mr-3">Profile Picture</p> </th>
+                  <th> <p class= "section-heading-upper mr-3">Firstname </p></th>
+                  <th> <p class= "section-heading-upper mr-3">Lastname </p></th>
+                  <th> <p class= "section-heading-upper mr-3">User </p></th>
+                  <th> <p class= "section-heading-upper mr-3">Actions</p> </th>
+                  <th colspan="3"></th>
+                </tr>
+              </thead>
 
-<table>
-  <thead>
-    <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-        <td><%= image_tag(profile.profilepic.tiny.url, class: "rounded mx-auto d-block") %></td>
-        <td><%= profile.firstname %></td>
-        <td><%= profile.lastname %></td>
-        <td><%= profile.user_id %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <% if current_user.admin? %>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+              <tbody>
+                <% @profiles.each do |profile| %>
+                  <tr>
+                    <td><%= image_tag(profile.profilepic.tiny.url, class: "rounded mx-auto d-block") %></td>
+                    <td><p class= "section-heading-upper mr-3"> <%= profile.firstname %></p></td>
+                    <td><p class= "section-heading-upper mr-3"> <%= profile.lastname %></td>
+                    <td><p class= "section-heading-upper mr-3"> <%= profile.user_id %></p></td>
+                    <td><p class= "section-heading-upper mr-3"> <%= link_to 'Show', profile %></p></td>
+                    <% if current_user.admin? %>
+                    <td><p class= "section-heading-upper mr-3"><%= link_to 'Edit', edit_profile_path(profile) %> </p></td>
+                    <td><p class= "section-heading-upper mr-3"><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></p></td>
+                    <% end %>
+                  </tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>

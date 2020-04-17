@@ -54,7 +54,8 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
 end
-
+#My Custom Gem for Adding Tips to posts
+#gem 'tipping_gem', '>= 0.1.2'
 # Bootstrap Gem
 gem 'bootstrap-sass'
 # Gems for image management

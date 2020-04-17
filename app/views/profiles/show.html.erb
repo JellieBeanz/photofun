@@ -1,27 +1,38 @@
-<p id="notice"><%= notice %></p>
-<p>
-  <strong>Profile Picture</strong>
-</p>
-  <%= image_tag(@profile.profilepic.url) %>
+<section class="page-section cta">
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <p id="notice"><%= notice %></p>
+          <h2 class="section-heading mb-5">
+            <span class="section-heading-upper"><%= @profile.firstname %>'s Profile</span>
+          </h2>
+            <p>
+              <strong>Profile Picture</strong>
+            </p>
+              <%= image_tag(@profile.profilepic.profile_size.url) %>
 
-<p>
-  <strong>Firstname:</strong>
-  <%= @profile.firstname %>
-</p>
+            <p>
+              <strong>Firstname:</strong>
+              <%= @profile.firstname %>
+            </p>
 
-<p>
-  <strong>Lastname:</strong>
-  <%= @profile.lastname %>
-</p>
+            <p>
+              <strong>Lastname:</strong>
+              <%= @profile.lastname %>
+            </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @profile.user_id %>
-</p>
+            <p>
+              <strong>User:</strong>
+              <%= @profile.user_id %>
+            </p>
 
-
-
-<% if current_user.admin? %>
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<% end %>
-<%= link_to 'Back', profiles_path %>
+            <% if current_user.admin? %>
+            <%= link_to 'Edit', edit_profile_path(@profile) %> |
+            <% end %>
+            <%= link_to 'Back', profiles_path %>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>

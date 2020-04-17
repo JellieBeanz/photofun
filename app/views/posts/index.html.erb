@@ -1,24 +1,46 @@
 <p id="notice"><%= notice %></p>
+<br>
+<div class="intro-button mx-auto mb-0">
+  <a class="btn btn-primary btn-xl" <%= link_to 'New Post', new_post_path %></a>
+  <br>
+  <div class="mt-2">
+    <%= form_for "", url: posts_path, role: "search", method: :get do%>
+    <%= text_field_tag :search, @search_term,placeholder: "Search..." %>
+    <% end %>
+  </div>
+</div>
+<br>
 <% @posts.each do |post| %>
-
-<section class="page-section about-heading">
+<section class="page-section cta">
   <div class="container">
-    <a href="<%= post_url(post)%>">
-    <img class="img-fluid rounded about-heading-img mb-0 mb-lg-0"<%= image_tag(post.image.profile_size.url) %>
-    </a>
-    <div class="about-heading-content">
-      <div class="row">
-        <div class="col-xl-9 col-lg-10 mx-auto">
-          <div class="bg-faded rounded p-5">
-            <h2 class="section-heading mb-4">
-              <span class="section-heading-upper"><%= link_to post.title, post %></span>
-            </h2>
-            <p class="mb-0">  <%= post.description %><br>
-              <% if user_signed_in? %>
-              <%= link_to 'Edit', edit_post_path(post) %>
-              <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
-              <% end %> </p>
-          </div>
+    <div class="row">
+      <div class="col-xl-9 mx-auto">
+        <div class="cta-inner text-center rounded">
+          <h2 class="section-heading mb-5">
+            <p id="notice"><%= notice %></p>
+            <span class="section-heading-upper"><%= post.title %></span>
+          </h2>
+          <section class="page-section about-heading">
+            <div class="container">
+              <a href="<%= post_url(post)%>">
+              <img class="img-fluid rounded about-heading-img mb-0 mb-lg-0"<%= image_tag(post.image.profile_size.url) %>
+              </a>
+              <div class="about-heading-content">
+                <div class="row">
+                  <div class="col-xl-9 col-lg-10 mx-auto">
+                    <div class="bg-faded rounded p-5">
+
+                      <p class="mb-0">  <%= post.description %><br>
+                        <% if user_signed_in? %>
+                        <%= link_to 'Edit', edit_post_path(post) %>
+                        <%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        <% end %> </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </div>

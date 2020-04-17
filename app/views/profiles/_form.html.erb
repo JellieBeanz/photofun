@@ -11,27 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
-  </div>
+  <section class="page-section cta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <div class="cta-inner text-center rounded">
+            <h2 class="section-heading mb-5">
+              <span class="section-heading-upper">Create A Profile</span>
+            </h2>
+            <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+              <li class="list-unstyled-item list-hours-item d-flex">
+                <%= form.label :firstname %>
+                <span class="ml-auto"><%= form.text_field :firstname %></span>
+              </li>
+              <li class="list-unstyled-item list-hours-item d-flex">
+                <%= form.label :lastname %>
+                <span class="ml-auto"><%= form.text_field :lastname %></span>
+              </li>
+              <li class="list-unstyled-item list-hours-item d-flex">
+                <%= form.label :user_id %>
+                <span class="ml-auto"><%= form.text_field :user_id %></span>
+              </li>
+              <li class="list-unstyled-item list-hours-item d-flex">
+                <div class="mr-5"<%= form.label :profilepic %></div>
+                <span class="ml-2 "><%= form.file_field :profilepic %></span>
+              </li>
 
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
-  </div>
 
-  <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
-  </div>
+            </ul>
+            <p class="address mb-5">
+              <em>
 
-  <div class="field">
-    <%= form.label :profilepic %>
-    <%= form.file_field :profilepic %>
-  </div>
+                <%= form.submit %>
+                <br>
+                <br>
+                <strong><%= link_to 'Back', posts_path %></strong>
+              </em>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+
 <% end %>
