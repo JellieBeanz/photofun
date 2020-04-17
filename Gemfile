@@ -58,6 +58,9 @@ end
 #gem 'tipping_gem', '>= 0.1.2'
 # Bootstrap Gem
 gem 'bootstrap-sass'
+
+#pagination
+gem 'will_paginate', '~> 3.1.7'
 # Gems for image management
 gem 'carrierwave'
 gem 'mini_magick'
