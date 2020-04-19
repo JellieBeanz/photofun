@@ -10,42 +10,52 @@
       </ul>
     </div>
   <% end %>
-<section class="page-section cta">
-  <div class="container">
-    <div class="row">
-      <div class="col-xl-9 mx-auto">
-        <div class="cta-inner text-center rounded">
-          <h2 class="section-heading mb-5">
-            <span class="section-heading-upper">Create A New Post</span>
-          </h2>
-          <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
-            <li class="list-unstyled-item list-hours-item d-flex">
-              <%= form.label :title %>
-              <span class="ml-auto"><%= form.text_field :title %></span>
-            </li>
-            <li class="list-unstyled-item list-hours-item d-flex">
-              <%= form.label :description %>
-              <span class="ml-auto"><%= form.text_area :description %></span>
-            </li>
-            <li class="list-unstyled-item list-hours-item d-flex">
-              <div class="mr-5"<%= form.label :image %></div>
-              <span class="ml-2 "><%= form.file_field :image %></span>
-            </li>
+
+    <section class="page-section cta">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-9 mx-auto">
+            <div class="cta-inner text-center rounded">
+              <% if user_signed_in? %>
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">Create A New Post</span>
+              </h2>
+              <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  <%= form.label :title %>
+                  <span class="ml-auto"><%= form.text_field :title %></span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  <%= form.label :description %>
+                  <span class="ml-auto"><%= form.text_area :description %></span>
+                </li>
+                <li class="list-unstyled-item list-hours-item d-flex">
+                  <div class="mr-5"<%= form.label :image %></div>
+                  <span class="ml-2 "><%= form.file_field :image %></span>
+                </li>
 
 
-          </ul>
-          <p class="address mb-5">
-            <em>
+              </ul>
+              <p class="address mb-5">
+                <em>
 
-              <%= form.submit %>
-              <br>
-              <br>
-              <strong><%= link_to 'Back', posts_path %></strong>
-            </em>
-          </p>
+                  <%= form.submit %>
+                  <br>
+                  <br>
+                  <strong><%= link_to 'Back', posts_path %></strong>
+                </em>
+              </p>
+              <% else %>
+              <h2 class="section-heading mb-5">
+                <span class="section-heading-upper">Sign in to create a Post</span>
+              </h2>
+                <%= link_to'Register', new_user_registration_path %> or
+                <%= link_to'Sign in', new_user_session_path %>
+              <% end %>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+
 <% end %>
